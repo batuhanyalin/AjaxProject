@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<h3 class="alert alert-primary">Ajax Ürün İşlemleri</h3>
+<button id="btnlist" class="btn btn-outline-primary">Ürün Listele</button>
+<button id="btncreate" class="btn btn-outline-info">Ürün Ekle</button>
+<button id="btndelete" class="btn btn-outline-danger">Ürün Sil</button>
+<button id="btnupdate" class="btn btn-outline-success">Ürün Güncelle</button>
+<button id="btnget" class="btn btn-outline-warning">Ürün Getir</button>
+
+<script>
+    $("#btnlist").click(function () {
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "Get",
+            url: "/Default/ProductList/",
+            success: function (func1) {
+                let products = jQuery.parseJSON(func1);
+                console.log(products);
+            }
+        });
+    });
+
+</script>
