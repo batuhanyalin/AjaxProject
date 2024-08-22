@@ -9,6 +9,12 @@
 <button id="btnupdate" class="btn btn-outline-success">Ürün Güncelle</button>
 <button id="btnget" class="btn btn-outline-warning">Ürün Getir</button>
 
+
+<hr />
+<div class="alert alert-dark">Ürün Listesi</div>
+<div id="productlist">
+</div>
+
 <script>
     $("#btnlist").click(function () {
         $.ajax({
@@ -19,6 +25,24 @@
             success: function (func1) {
                 let products = jQuery.parseJSON(func1);
                 console.log(products);
+
+                let tablehtml = "<table class=table table-bordered table-hover>"
+                    + "<tr>"
+                    + "<th>Ürün Id</th>"
+                    + "<th>Ürün Adı</th>"
+                    + "<th>Ürün Stok</th>"
+                    + "<th>Ürün Fiyat</th>"
+                    + "</tr>"
+                $.each(products, (index, value) => {
+                    tablehtml += `<tr>`
+                        + `<td>${value.ProductId}</td>`
+                        + `<td>${value.ProductName}</td>`
+                        + `<td>${value.Stock}</td>`
+                        + `<td>${value.Price}</td>`
+                        +`</tr>`
+                });
+                tablehtml += "</table>";
+                $("#productlist").html(tablehtml);
             }
         });
     });
