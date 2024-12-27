@@ -13,30 +13,25 @@ Projenin amacı Ajax-JavaScript teknolojilerini kullanarak sayfalarda POST dedi�
 * 🔃 Ajax ve JavaScript teknolojileri kullanılarak sayfa bazlı post işlemi olmaksızın veri güncellemesi işlemleri yaptırıldı.
 
 # Tanıtım
-![Veritabanı](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/mongoDbGoogleCloudProject.gif)
-### Veritabanı
-![Veritabanı](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/database.png?raw=true)
-### Google Cloud
-![Veritabanı](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/googleCloud.png?raw=true)
+![Veritabanı](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/ajax-javascriptProject.gif)
 
-![Veritabanı](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/googleCloudImage.png?raw=true)
-#### İstatistikler
-![](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/statistic.png?raw=true)
-#### Kategoriler
-![](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/category.png?raw=true)
-#### Ürünler
-![](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/product.png?raw=true)
-#### Müşteriler
-![](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/customer.png?raw=true)
-#### Ürün Güncelle
-![](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/update.png?raw=true)
-#### Siparişler
-![](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/order.png?raw=true)
-#### Yeni Sipariş
-![](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/newOrder.png?raw=true)
-##### Sipariş Durumu
-![](https://github.com/batuhanyalin/MongoDb/blob/master/MongoDb/wwwroot/images/projectScreenshots/categoryStatus.png?raw=true)
-
+![Veritabanı](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/googleCloudImage.png?raw=true)
+#### Anasayfa
+![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/ui_1.png?raw=true)
+![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/ui_2.png?raw=true)
+![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/ui_3.png?raw=true)
+#### Ürün Ekleme
+![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/createProduct.png?raw=true)
+#### Modal ile Ürün Ekleme
+![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/createProduct_Modal.png?raw=true)
+![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/createProduct_Modal_Sweetalert.png?raw=true)
+#### Ürün Güncelleme
+![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/updateProduct_modal.png?raw=true)
+#### Ürün Silme
+![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/deleteProduct.png?raw=true)
+![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/deleteProduct_Alert.png?raw=true)
+#### Ürün Getirme
+![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/getProduct.png?raw=true)
 
 
 
