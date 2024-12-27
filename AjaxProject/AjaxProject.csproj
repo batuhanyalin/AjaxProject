@@ -7,6 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\table-01\.DS_Store" />
+    <None Include="wwwroot\table-01\css\.DS_Store" />
+    <None Include="wwwroot\table-01\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\table-01\css\bootstrap\mixins\.DS_Store" />
+    <None Include="wwwroot\table-01\fonts\.DS_Store" />
+    <None Include="wwwroot\table-01\images\.DS_Store" />
+    <None Include="wwwroot\table-01\js\.DS_Store" />
+    <None Include="wwwroot\table-01\scss\.DS_Store" />
+    <None Include="wwwroot\table-01\scss\bootstrap\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.33" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.33">
       <PrivateAssets>all</PrivateAssets>

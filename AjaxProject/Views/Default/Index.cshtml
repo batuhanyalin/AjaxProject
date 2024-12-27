@@ -1,50 +1,383 @@
 ﻿@{
     ViewData["Title"] = "Index";
 }
+<script src="https://kit.fontawesome.com/a5532d615c.js" crossorigin="anonymous"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<h3 class="alert alert-primary">Ajax Ürün İşlemleri</h3>
-<button id="btnlist" class="btn btn-outline-primary">Ürün Listele</button>
-<button id="btncreate" class="btn btn-outline-info">Ürün Ekle</button>
-<button id="btndelete" class="btn btn-outline-danger">Ürün Sil</button>
-<button id="btnupdate" class="btn btn-outline-success">Ürün Güncelle</button>
-<button id="btnget" class="btn btn-outline-warning">Ürün Getir</button>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-<hr />
-<div class="alert alert-dark">Ürün Listesi</div>
-<div id="productlist">
+<div class="container">
+    <div class="row">
+        <div style="text-align:center" class="alert alert-danger col col-md-12">
+            <h3>M&Y Yazılım Eğitim Akademi Danışmanlık' tan aldığım eğitim kapsamında hazırladığım 9. projedir.</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div style="text-align:center" class="alert alert-info col col-md-12">
+            <h2>AJAX - JavaScript Projesi</h2>
+                <img height="150px" width="auto" src="~/images/img_ajax.png" />  
+                <img height="150px" width="auto" src="~/images/javascript_logo.png" />
+        </div>
+    </div>
+    <div class="row">
+        <div style="text-align:center" class="alert alert-secondary col col-md-12">
+            <span style="font-size:medium">Projede <strong style="color:deepskyblue">Ajax</strong> ve <script style="color:darkorange">JavaScript</script> teknolojileri kullanılarak sayfada post işlemi esnasında yenileme olmaksızın veri güncellenmesi sağlanması amaçlanmıştır. Veritabanı yönetimi olarak <strong style="color:green">MSSQL</strong> tercih edilmiş ve proje <strong style="color:mediumpurple">CodeFirst</strong> yaklaşımıyla hazırlanmıştır. <strong style="color:red">SweetAlert</strong> ile uyarı ekranları açılıp modal Pop-Up ile veri güncellemesi gerçekleştirilebilmektedir.</span>
+        </div>
+    </div>
 </div>
 
+<div class="modal fade" id="CreateProductForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header alert-success">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Ürün Ekle</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="productname" class="mt-1">Ürün Adı</label>
+                <input type="text" id="productModalName" class="form-control mb-2" />
+                <label for="productModalStock">Adet</label>
+                <input type="text" id="productstock" class="form-control mb-2" />
+                <label for="productModalPrice">Fiyatı</label>
+                <input type="text" id="productprice" class="form-control mb-2" />
+            </div>
+            <div class="modal-footer">
+                <button id="btnModalCreateProductClose" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+                <button id="btnModalCreateProduct" class="btn btn-primary">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="UpdateProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header alert-warning">
+                <h2 class="modal-title" id="staticBackdropLabel">Ürün Güncelle</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col col-md-12">
+                        <input type="hidden" id="UpdateProductId" />
+                        <label class="form-label">Ürün Adı</label>
+                        <input type="text" placeholder="Ürün Adını Güncelleyin" id="UpdateProductName" class="form-control" />
+                        <br />
+                         <label class="form-label">Stok</label>
+                        <input type="number" placeholder="Ürün Stoğunu Güncelleyin" id="UpdateStock" class="form-control" />
+                        <br />
+                         <label class="form-label">Fiyat</label>
+                        <input type="text" placeholder="Ürün Fiyatını Güncelleyin" id="UpdatePrice" class="form-control" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnProductUpdateDismiss" class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+                <button type="button" id="btnProductUpdate" class="btn btn-primary">Güncelle</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alert alert-primary">
+<div class="row">
+    <div class="col col-md-3">
+           <h3>Ajax Ürün İşlemleri</h3>
+    </div>
+ <div class="col col-md-2">
+     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#CreateProductForm">Yeni Ürün Ekle</button>
+ </div>
+
+</div>
+</div> 
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md-12">
+            <div class="alert alert-dark">Ürün Listesi</div>
+            <div id="productList">
+            </div>
+        </div>
+
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col col-md-6">
+            <div class="alert alert-success">Yeni Ürün Girişi</div>
+            <div>
+                <input type="text" placeholder="Ürün Adını Giriniz" id="productCreateName" class="form-control" />
+                <br />
+                <input type="number" placeholder="Ürün Stok Sayısını Giriniz" id="productCreateStock" class="form-control" />
+                <br />
+                <input type="text" placeholder="Ürün Fiyatını Giriniz" id="productCreatePrice" class="form-control" />
+                <br />
+                <button id="btnCreateProduct" class="btn btn-outline-success">Ürün Ekle</button>
+            </div>
+        </div>
+                <div class="col col-md-6">
+            <div class="alert alert-warning">Ürün Güncelleme Paneli</div>
+            <div>
+                <input type="text" placeholder="Ürün ID Girin" id="productIdEdit" class="form-control" />
+                <br />
+                <input type="text" placeholder="Ürün Adını Güncelleyin" id="productNameEdit" class="form-control" />
+                <br />
+                <input type="number" placeholder="Ürün Stoğunu Güncelleyin" id="productStockEdit" class="form-control" />
+                <br />
+                <input type="text" placeholder="Ürün Fiyatını Güncelleyin" id="productPriceEdit" class="form-control" />
+                <br />
+                <button id="btnupdate" class="btn btn-outline-warning">Seçili Ürün Bilgilerini Güncelle</button>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col col-md-6">
+        <div class="alert alert-info">Ürün Detayları Getirme</div>
+        <div>
+            <input type="text" placeholder="Ürün Id Giriniz" id="productgetId" class="form-control" />
+            <br />
+            <button id="btnget" class="btn btn-outline-info">Ürün Detay Getir</button>
+            <br />
+            <div id="getProduct">
+            </div>
+        </div>
+        </div>
+                <div class="col col-md-6">
+            <div class="alert alert-danger">Ürün Silme</div>
+            <div>
+                <input type="text" placeholder="Ürün ID Giriniz" id="productdeleteId" class="form-control" />
+                <br />
+                <button id="btndelete" class="btn btn-outline-danger">Ürün Sil</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 <script>
-    $("#btnlist").click(function () {
+    $("#productList").on('click', '.btn-update', function () {
+        let userId = $(this).data("id");
+        console.log(userId);
+        $.ajax({
+            url: "/Default/GetProduct/" + userId,
+            type: "GET",
+            dataType: "json",
+            success: function (funkGetUser) {
+                let response = JSON.parse(funkGetUser);
+                console.log(response);
+                // Ürün bilgilerini popup içinde doldur
+                $("#UpdateProductId").val(response.ProductId);
+                $("#UpdateProductName").val(response.ProductName);
+                $("#UpdateStock").val(response.Stock);
+                $("#UpdatePrice").val(response.Price);
+                // Popup'ı göster
+                $("#UpdateProduct").fadeIn();
+            },
+            error: function () {
+                Swal.fire({
+                    title: "HATA",
+                    text: "Kullanıcı bilgileri yüklenemedi.",
+                    icon: "warning"
+                });
+            }
+        });
+    });
+
+
+    function loadProductList() {
         $.ajax({
             contentType: "application/json",
             dataType: "json",
-            type: "Get",
+            type: "GET",
             url: "/Default/ProductList/",
-            success: function (func1) {
-                let products = jQuery.parseJSON(func1);
+            success: function (funklist) {
+                let products = jQuery.parseJSON(funklist);
                 console.log(products);
-
                 let tablehtml = "<table class=table table-bordered table-hover>"
+                    + "<thead class=thead-primary>"
                     + "<tr>"
                     + "<th>Ürün Id</th>"
                     + "<th>Ürün Adı</th>"
                     + "<th>Ürün Stok</th>"
                     + "<th>Ürün Fiyat</th>"
+                    + "<th>Sil</th>"
+                    + "<th>Güncelle</th>"
                     + "</tr>"
+                    + "</thead>";
                 $.each(products, (index, value) => {
                     tablehtml += `<tr>`
                         + `<td>${value.ProductId}</td>`
                         + `<td>${value.ProductName}</td>`
                         + `<td>${value.Stock}</td>`
                         + `<td>${value.Price}</td>`
-                        +`</tr>`
+                        + `<td><button class="btn btn-danger btn-delete" data-id="${value.ProductId}"><i class="fas fa-trash-alt"></i></button></td>`
+                        + `<td><button class="btn btn-warning btn-update" data-id="${value.ProductId}" data-bs-toggle="modal" data-bs-target="#UpdateProduct"><i class="fas fa-sync"></i></button></td>` + `</tr>`;
                 });
                 tablehtml += "</table>";
-                $("#productlist").html(tablehtml);
+                $("#productList").html(tablehtml);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        loadProductList();
+    });
+
+    $("#btnProductUpdate").click(function () {
+        let values = {
+            ProductId: $("#UpdateProductId").val(),
+            ProductName: $("#UpdateProductName").val(),
+            Price: $("#UpdatePrice").val(),
+            Stock: $("#UpdateStock").val()
+        };
+        $.ajax({
+            url: "/Default/UpdateProduct/",
+            data: values,
+            type: "post",
+            success: function (funk5) {
+                                    loadProductList(); // Listeyi güncelle
+                                    $("#btnProductUpdateDismiss").click();
+                        Swal.fire({
+                            title: "İşlem Başarılı!",
+                            text: "Seçtiğiniz ürün başarılı bir şekilde güncellendi.",
+                            icon: "success"
+                        });
             }
         });
     });
 
+   $("#btnupdate").click(function () {
+        let values = {
+            ProductId: $("#productIdEdit").val(),
+            ProductName: $("#productNameEdit").val(),
+            Price: $("#productPriceEdit").val(),
+            Stock: $("#productStockEdit").val()
+        };
+        $.ajax({
+            url: "/Default/UpdateProduct/",
+            data: values,
+            type: "post",
+            success: function (funk5) {
+                                    loadProductList(); // Listeyi güncelle
+                        Swal.fire({
+                            title: "İşlem Başarılı!",
+                            text: "Seçtiğiniz ürün başarılı bir şekilde güncellendi.",
+                            icon: "success"
+                        });
+            }
+        });
+    });
+
+
+    $("#btnget").click(function () {
+        let id = $("#productgetId").val();
+        $.ajax({
+            url: "/Default/GetProduct/" + id,
+            type: "GET",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (funk4) {
+                let result = jQuery.parseJSON(funk4);
+                console.log(result);
+            }
+        });
+    });
+
+    $("#productList").on('click', '.btn-delete', function () {
+        let productId = $(this).data('id');
+        console.log(productId);
+        Swal.fire({
+            title: "Ürünü Silmek İstediğinizden Emin Misiniz??",
+            text: "Bu işlemin geri dönüşü olmayacaktır.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Evet, sil.",
+            cancelButtonText: "İptal Et."
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "post",
+                    url: "/Default/DeleteProduct/" + productId,
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (funkdelete) {
+                        loadProductList(); // Listeyi güncelle
+                        Swal.fire({
+                            title: "İşlem Başarılı!",
+                            text: "Seçtiğiniz ürün başarılı bir şekilde silindi.",
+                            icon: "success"
+                        });
+                    }
+                });
+            }
+        });
+    });
+
+    $("#btnCreateProduct").click(function () {
+        let productvalues = {
+            ProductName: $("#productCreateName").val(),
+            Stock: $("#productCreateStock").val(),
+            Price: $("#productCreatePrice").val()
+        };
+        $.ajax({
+            type: "post",
+            url: "/Default/CreateProduct/",
+            data: productvalues,
+            success: function (funk2) {
+                let result = jQuery.parseJSON(funk2);
+                loadProductList(); // Listeyi güncelle
+                      Swal.fire({
+                            title: "İşlem Başarılı!",
+                            text: "Yeni ürün başarılı bir şekilde eklendi.",
+                            icon: "success"
+                        });
+            }
+        });
+    });
+
+        $("#btnModalCreateProduct").click(function () {
+        let productvalues = {
+            ProductName: $("#productModalName").val(),
+            Stock: $("#productModalStock").val(),
+            Price: $("#productModalPrice").val()
+        };
+        $.ajax({
+            type: "post",
+            url: "/Default/CreateProduct/",
+            data: productvalues,
+            success: function (funk2) {
+                let result = jQuery.parseJSON(funk2);
+                 loadProductList(); // Listeyi güncelle
+                        Swal.fire({
+                            title: "İşlem Başarılı!",
+                            text: "Yeni ürün başarılı bir şekilde eklendi.",
+                            icon: "success"
+                        });
+                          $("#btnModalCreateProductClose").click();
+                                    
+               
+            }
+        });
+    });
+
+    $("#btndelete").click(function () {
+        let id = $("#productdeleteId").val();
+        $.ajax({
+            url: "/Default/DeleteProduct/" + id,
+            type: "post",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (funk3) {
+                                   loadProductList(); // Listeyi güncelle
+                        Swal.fire({
+                            title: "İşlem Başarılı!",
+                            text: "Seçtiğiniz ürün başarılı bir şekilde silindi.",
+                            icon: "success"
+                        });
+            }
+        });
+    });
 </script>
