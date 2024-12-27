@@ -2,7 +2,7 @@
 📢 M&Y Yazılım Akademi Danışmanlıktan aldığım eğitim kapsamında geliştirmiş olduğum 9. proje olan Ajax - JavaScript Projesidir.
 
 ## 🪶 Projenin Amacı;
-
+Projenin amacı Ajax-JavaScript teknolojilerini kullanarak sayfalarda POST dediğimiz arkaplana istek atılma işlemlerinde sayfanın tekrar yenilenmeden sayfa içerisindeki verilerin otomatik olarak yenilenmesini sağlamaktır. Burada veri ekleme ve silme işlemlerinde sayfa yenilemesi kullanmadan veri güncellemesi yapılmaktadır ve projeye eklenen SweetAlert ile durum bildirimleri daha şık ve tasarımsal anlamda projeye iyileştirme getirmektedir. Ekstra olarak açılan Modal Pop-uplar ile de veriler yine manipüle edilebilmektedir. 
 
 ## 🛠️ Kullanılan Bazı Teknolojiler
 * 🗃️ MSSQL veritabanı yönetimi ve depolama için kullanıldı.
