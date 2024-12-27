@@ -14,8 +14,6 @@ Projenin amacı Ajax-JavaScript teknolojilerini kullanarak sayfalarda POST dedi�
 
 # Tanıtım
 ![Veritabanı](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/ajax-javascriptProject.gif)
-
-![Veritabanı](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/googleCloudImage.png?raw=true)
 #### Anasayfa
 ![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/ui_1.png?raw=true)
 ![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/ui_2.png?raw=true)
