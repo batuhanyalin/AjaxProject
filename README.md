@@ -19,8 +19,6 @@ Projenin amacı Ajax-JavaScript teknolojilerini kullanarak sayfalarda POST dedi�
 ![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/ui_2.png?raw=true)
 ![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/ui_3.png?raw=true)
 #### Ürün Ekleme
-![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/createProduct.png?raw=true)
-#### Modal ile Ürün Ekleme
 ![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/createProduct_Modal.png?raw=true)
 ![](https://github.com/batuhanyalin/AjaxProject/blob/master/AjaxProject/wwwroot/images/projectScreenShots/createProduct_Modal_Sweetalert.png?raw=true)
 #### Ürün Güncelleme
